@@ -13,6 +13,8 @@ function App() {
     } else {
       clearInterval(intervalRef.current);
     }
+
+    // Cleanup interval on component unmount
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
@@ -24,8 +26,10 @@ function App() {
     setIsRunning(false);
     setSeconds(0);
   };
+
   const minutes = Math.floor(seconds / 60);
   const displaySeconds = seconds % 60;
+
   return (
     <div className="stopwatch">
       <h1>Stopwatch</h1>
