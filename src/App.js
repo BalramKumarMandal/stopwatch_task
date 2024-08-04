@@ -29,16 +29,21 @@ function App() {
 
   const minutes = Math.floor(seconds / 60);
   const displaySeconds = seconds % 60;
-
+  console.log('ffrfrfrfr', minutes, displaySeconds);
   return (
     <div className="stopwatch">
       <h1>Stopwatch</h1>
       <div className="time">
-        Time: {minutes.toString().padStart(2, '0')}:
-        {displaySeconds.toString().padStart(2, '0')}
+        Time: {minutes.toString().padStart(2)}:
+        {displaySeconds.toString().padStart(2, 0)}
       </div>
       <div className="controls">
-        <button onClick={handleStartStop}>
+        <button
+          onClick={handleStartStop}
+          style={{
+            marginRight: '10px',
+          }}
+        >
           {isRunning ? 'Stop' : 'Start'}
         </button>
         <button onClick={handleReset}>Reset</button>
